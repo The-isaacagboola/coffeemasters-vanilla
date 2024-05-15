@@ -1,9 +1,3 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const nav = $("nav");
-  console.log(nav);
-  nav.innerHTML = `<h2> HELLO DOM </h2>`;
-});
-
 const $ = function (args) {
   return document.querySelector(args);
 };
@@ -23,3 +17,5 @@ HTMLElement.prototype.$ = function (s) {
 HTMLElement.prototype.$$ = function (s) {
   return this.querySelectorAll(s);
 };
+
+window.addEventListener("DOMContentLoaded", () => {});
