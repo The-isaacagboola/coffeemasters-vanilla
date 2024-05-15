@@ -1,21 +1,16 @@
-const $ = function (args) {
-  return document.querySelector(args);
-};
-const $$ = function (args) {
-  return document.querySelectorAll(args);
-};
+import Store from "./services/Store.js";
+import API from "./services/API.js";
+import { loadData } from "./services/Menu.js";
 
-HTMLElement.prototype.on = function (a, b, c) {
-  return this.addEventListener(a, b, c);
-};
-HTMLElement.prototype.off = function (a, b) {
-  return this.removeEventListener(a, b);
-};
-HTMLElement.prototype.$ = function (s) {
-  return this.querySelector(s);
-};
-HTMLElement.prototype.$$ = function (s) {
-  return this.querySelectorAll(s);
-};
+//to make these imported modules global; we can simply attach them to the global window object METHOD 1
+window.app = {};
+app.store = Store;
 
-window.addEventListener("DOMContentLoaded", () => {});
+// window.addEventListener("DOMContentLoaded", async () => {
+//   const menu = await API.fetchMenu();
+// });
+
+//METHOD 2: MAke a seperate menu.js file to load the data
+window.addEventListener("DOMContentLoaded", async () => {
+  loadData();
+});
