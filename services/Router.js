@@ -39,11 +39,11 @@ const Router = {
         }
     }
     if (pageElement) {
+      document.querySelector("main").innerHTML = "";
+      document.querySelector("main").appendChild(pageElement);
+      window.scrollX = 0;
+      window.scrollY = 0;
     }
-    document.querySelector("main").innerHTML = "";
-    document.querySelector("main").appendChild(pageElement);
-    window.scrollX = 0;
-    window.scrollY = 0;
   },
 };
 export default Router;
