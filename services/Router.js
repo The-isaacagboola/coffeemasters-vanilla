@@ -6,6 +6,10 @@ const Router = {
         const url = event.target.href; // or simply a.href
         const url2 = event.target.getAttribute("href"); // or simply a.getAttribute("href")...... Either of these two would work
 
+        window.addEventListener("popstate", (event) => {
+          Router.go(event.state.route, false);
+          console.log(window.history.state);
+        });
         Router.go(url2);
       });
     });
@@ -26,6 +30,13 @@ const Router = {
         pageElement = document.createElement("h1");
         pageElement.textContent = "Your Order";
         break;
+      default:
+        if (route.startsWith("/product-")) {
+          pageElement = document.createElement("h1");
+          pageElement.textContent = "Details";
+          const paramId = route.substring(route.lastIndexOf("-") + 1);
+          pageElement.dataset.id = paramId;
+        }
     }
     if (pageElement) {
     }
