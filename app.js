@@ -7,6 +7,7 @@ import Router from "./services/Router.js";
 import { MenuPage } from "./components/MenuPage.js";
 import { DetailsPage } from "./components/DetailsPage.js";
 import { OrderPage } from "./components/OrderPage.js";
+import ProductItem from "./components/ProductItem.js";
 
 //to make these imported modules global; we can simply attach them to the global window object METHOD 1
 window.app = {};
