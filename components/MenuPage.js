@@ -22,7 +22,7 @@ export class MenuPage extends HTMLElement {
     this.root.appendChild(content);
 
     window.addEventListener("appmenuchange", () => {
-      console.log("fire");
+      console.log("fired");
       this.render();
     });
     this.render();

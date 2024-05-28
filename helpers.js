@@ -17,5 +17,3 @@ HTMLElement.prototype.$ = function (s) {
 HTMLElement.prototype.$$ = function (s) {
   return this.querySelectorAll(s);
 };
-
-window.addEventListener("DOMContentLoaded", () => {});
