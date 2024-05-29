@@ -1,6 +1,6 @@
-import { removeFromCart } from "../services/Order";
+import { removeFromCart } from "../services/Order.js";
 
-export class CartItem extends HTMLElement {
+export default class CartItem extends HTMLElement {
   constructor() {
     super();
   }
@@ -14,7 +14,7 @@ export class CartItem extends HTMLElement {
 
     this.appendChild(content);
 
-    this.querySelector(".gty").textContent = `${item.quantity}x`;
+    this.querySelector(".qty").textContent = `${item.quantity}x`;
     this.querySelector(".name").textContent = item.product.name;
     this.querySelector(".price").textContent = `$${item.product.price.toFixed(
       2

@@ -1,4 +1,9 @@
-export default class OrderPage extends HTMLElement {
+export class OrderPage extends HTMLElement {
+  #user = {
+    name: "",
+    phone: "",
+    email: "",
+  };
   constructor() {
     super();
 
@@ -55,6 +60,31 @@ export default class OrderPage extends HTMLElement {
             </li>                
         `;
     }
+
+    this.setFormBindings(this.root.querySelector("form"));
+  }
+
+  setFormBindings(form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert(`Thanks for your order ${this.#user.name}.`);
+      this.#user.name = "";
+      this.#user.phone = "";
+      this.#user.email = "";
+    });
+    //set double data binding
+    this.#user = new Proxy(this.#user, {
+      set(target, property, value) {
+        target[property] = value;
+        form.elements[property].value = value;
+        return true;
+      },
+    });
+    Array.from(form.elements).forEach((element) => {
+      element.addEventListener("change", () => {
+        this.#user[element.name] = element.value;
+      });
+    });
   }
 }
 customElements.define("order-page", OrderPage);

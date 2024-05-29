@@ -12,6 +12,7 @@ const Router = {
         Router.go(url2);
       });
     });
+    Router.go("/");
   },
   go: (route, addToHistory = true) => {
     console.log("going to ", route);
